@@ -1,0 +1,22 @@
+
+# Ignore downloaded gits
+/scikit-image/**
+/openslide-python/**
+
+# ignore SVS images and PNG's derived from them
+/1-cells/both-files/**
+/1-cells/SVS2png_images/**
+
+# Ignore parts of genetics
+#ignore raw genomics datasets
+**/GSE124691/**
+#ignore scartch code
+2-genetics/scratch/**
+**.RData
+/2-genetics/glimma-plots/**
+
+# STANDARD MAC GITIGNORE
+.DS_Store
+**/.DS_Store
+#
+.Rproj.user
