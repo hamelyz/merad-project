@@ -7,6 +7,19 @@
 /1-cells/both-files/**
 /1-cells/SVS2png_images/**
 
+# ignore downloaded and created tif images
+**/formatted_images/**
+**.tif
+/TMI2015/
+**/TMI2015/**  
+
+# Ignore jupyter checkpoints
+1-cells/.ipynb_checkpoints/**
+
+# pycache
+**/__pycache__/**
+
+
 # Ignore parts of genetics
 #ignore raw genomics datasets
 **/GSE124691/**
@@ -14,6 +27,10 @@
 2-genetics/scratch/**
 **.RData
 /2-genetics/glimma-plots/**
+
+# ignore .Rhistory
+2-genetics/.Rhistory
+
 
 # STANDARD MAC GITIGNORE
 .DS_Store

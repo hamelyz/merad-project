@@ -296,6 +296,10 @@ for (geneindex in indices){
   
   gene1 <- data.frame('logcounts' = datalg, 'CellnBatch' = glint, 'Cell_Type' = group)
   
+  # Do row stats
+  genename_ <- d$genes[most_significant_gene]
+  genestats <- LCMV.vs.TIL[which(LCMV.vs.TIL$ID0 == genename_), ]
+  
   ## Statistical test
   # Distribution: non-normal
   # Input var: Nominal
@@ -315,11 +319,16 @@ for (geneindex in indices){
   w_LCMV <- wilcox.test(LCMV_rep1,LCMV_rep2) # For Numeric Data
   w_TIL <- wilcox.test(TIL_rep1,TIL_rep2) # For Numeric Data
   
-  hyp_LCMV <- paste0("LCMV batch null hypothesis ",nullhyptest(w_LCMV$p.value)," with p-value=",round(w_LCMV$p.value,5))
-  hyp_TIL <- paste0("TIL batch null hypothesis ",nullhyptest(w_TIL$p.value)," with p-value=",round(w_TIL$p.value,5))
+  # Calculate caption lines
+  hyp_title <- "Reproducibility: Independent 2 group Whitney-Man U"
+  hyp_title2 <- "test of batches for a cell tissue type"
+  hyp_LCMV <- paste0("LCMV batch null hypothesis ",nullhyptest(w_LCMV$p.value)," with p-value=",formatC(w_LCMV$p.value,format="e"))
+  hyp_TIL <- paste0("TIL batch null hypothesis ",nullhyptest(w_TIL$p.value)," with p-value=",formatC(w_TIL$p.value,format="e"))
+  lfc_title <- paste0("Significance of Differential Expression:")
+  lfc_cells <- paste0("Absolute log fold change between cell tissue is ", abs(genestats$logFC))
   
   plot_title <- paste0("Boxplot of gene \"",d$genes[most_significant_gene],"\" expression in \nLCMV_GP66+ and TIL CD4+ cells\n")
-  plot_caption <- paste0("Hypothesis testing across batch within cell tissue type\n",hyp_LCMV,'\n',hyp_TIL)
+  plot_caption <- paste0(hyp_title,'\n',hyp_title2,'\n',hyp_LCMV,'\n',hyp_TIL,'\n\n',lfc_title,'\n',lfc_cells)
   
   p <- ggplot(gene1, aes(x=CellnBatch, y=logcounts, fill=Cell_Type)) + 
     # geom_violin(trim=TRUE) +
@@ -328,8 +337,7 @@ for (geneindex in indices){
     scale_x_discrete(limits=c("LCMV_GP66_L1","LCMV_GP66_L2", "TILs_CD44_L1", "TILs_CD44_L2"))
   
   # Save File
-  genename_ = d$genes[most_significant_gene]
-  path_ = paste0("./LogFC_2_plots/",genename_,"_boxplot.png")
+  path_ = paste0("./deliverables/",genename_,"_boxplot.png")
   # png(file=path_, width=600, height=350)
   p
   # dev.off()
