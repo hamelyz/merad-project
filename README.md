@@ -1,6 +1,7 @@
-# Merad Projects
+# Projects
 Both subfolders have their own respective README files
-## Contents
+
+## Projects
 1. Cell Counting (./1-cells)
 2. Genetics Expression (./2-genetics)
 
