@@ -17,7 +17,7 @@ Both subfolders have their own respective README files
 │   │   └── level_14
 │   │       ├── images-0
 │   │       └── images-1
-│   ├── TMI2015 (not pushed due to size)
+│   ├── TMI**** (not pushed due to size)
 │   │   
 │   ├── __pycache__ (not pushed due to size)
 │   ├── both-files-SVS (not pushed due to size)
