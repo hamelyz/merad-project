@@ -22,8 +22,8 @@ There could be a number of reasons why the deep learning algorithms did not work
     * When encountering consecutive improvment-less epochs, the network would reduce it's learning rate several times to see if more incremental/smaller changes in weights overcomes training plateaus. 
 1. Use parameter optimization to determine best optimizer and loss algorithms (that work best for this counting problem).
 
-## FCRN
-#### Another potential deep learning model
+## Other potential deep learning model
+#### FCRN
 
 
 FCRN Model suggested in:
