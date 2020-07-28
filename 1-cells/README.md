@@ -17,7 +17,9 @@ The graph results are in the folder `./deliverables/` and `./deliverables/result
 There could be a number of reasons why the deep learning algorithms did not work well. In no particular order if I had more time and/or resources I would: 
 1. Transfer learn on larger non-medical and medical datasets, 
 1. Acquire more labeled H&E stain images (I have ~320)
-1. Implement patience and learning rate reductions so I can have a variable number of epochs
+1. Increase number of epochs, implement patience, and include learning rate reductions, so I can have a variable number of epochs.
+    * This would run training for a *practically unlimited* number of epochs and have the network determine an optimal stopping point through a preset number of consecutive epochs with no significant improvement (i.e. patience).
+    * When encountering consecutive improvment-less epochs, the network would reduce it's learning rate several times to see if more incremental/smaller changes in weights overcomes training plateaus. 
 1. Use parameter optimization to determine best optimizer and loss algorithms (that work best for this counting problem).
 
 ## FCRN
@@ -32,7 +34,7 @@ FCRN Model suggested in:
 [id1]: https://ieeexplore-ieee-org.proxy.library.upenn.edu/document/8707397 
 [id2]: http://www.robots.ox.ac.uk/~vgg/publications/2015/Xie15/weidi15.pdf
 
-#### links
+#### links and project rescources 
 1. https://github.com/WeidiXie/cell_counting_v2
 1. https://ieeexplore-ieee-org.proxy.library.upenn.edu/document/8707397 
 1. http://www.robots.ox.ac.uk/~vgg/publications/2015/Xie15/weidi15.pdf
